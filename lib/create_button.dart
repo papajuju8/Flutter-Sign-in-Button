@@ -167,17 +167,17 @@ class SignInButton extends StatelessWidget {
 
   void _setButtonSize() {
     if (buttonSize == ButtonSize.small) {
-      padding ??= !mini ? 5.0 : 6.0;
+      padding ??= !mini ? EdgeInsets.all(5.0) : EdgeInsets.all(6.0);
       width ??= 200;
       _fontSize = 15.0;
       _imageSize = !mini ? 24.0 : 30.0;
     } else if (buttonSize == ButtonSize.medium) {
-      padding ??= !mini ? 5.5 : 6.5;
+      padding ??= !mini ? EdgeInsets.all(5.5) : EdgeInsets.all(6.5);
       width ??= 220;
       _fontSize = 17.0;
       _imageSize = !mini ? 28.0 : 34.0;
     } else {
-      padding ??= !mini ? 6.0 : 7.0;
+      padding ??= !mini ? EdgeInsets.all(6.0) : EdgeInsets.all(7.0);
       width ??= 250;
       _fontSize = 19.0;
       _imageSize = !mini ? 32.0 : 38.0;
