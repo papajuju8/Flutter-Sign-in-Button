@@ -54,7 +54,7 @@ class SignInButton extends StatelessWidget {
 
   // not required, Gets value according to buttonSize.
   /// [padding] set the button's padding value.
-  EdgeInsets? padding;
+  EdgeInsetsGeometry? padding;
 
   /// [_image] value cannot be assigned.Gets value according to [buttonType].
   Widget? _image;
