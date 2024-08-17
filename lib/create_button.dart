@@ -54,7 +54,7 @@ class SignInButton extends StatelessWidget {
 
   // not required, Gets value according to buttonSize.
   /// [padding] set the button's padding value.
-  EdgeInsetsGeometry? padding;
+  double? padding;
 
   /// [_image] value cannot be assigned.Gets value according to [buttonType].
   Widget? _image;
@@ -130,12 +130,12 @@ class SignInButton extends StatelessWidget {
                     : MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: padding,
+                    padding: EdgeInsets.all(padding!),
                     child:
                         imagePosition == ImagePosition.left ? _image : _text(),
                   ),
                   Padding(
-                    padding: padding,
+                    padding: EdgeInsets.all(padding!),
                     child:
                         imagePosition == ImagePosition.left ? _text() : _image,
                   ),
@@ -149,7 +149,7 @@ class SignInButton extends StatelessWidget {
             disabledColor: btnDisabledColor,
             child: _image,
             elevation: elevation,
-            padding: padding,
+            padding: EdgeInsets.all(padding!),
             shape: CircleBorder(),
           );
   }
@@ -167,17 +167,17 @@ class SignInButton extends StatelessWidget {
 
   void _setButtonSize() {
     if (buttonSize == ButtonSize.small) {
-      padding ??= !mini ? EdgeInsets.all(5.0) : EdgeInsets.all(6.0);
+      padding ??= !mini ? 5.0 : 6.0;
       width ??= 200;
       _fontSize = 15.0;
       _imageSize = !mini ? 24.0 : 30.0;
     } else if (buttonSize == ButtonSize.medium) {
-      padding ??= !mini ? EdgeInsets.all(5.5) : EdgeInsets.all(6.5);
+      padding ??= !mini ? 5.5 : 6.5;
       width ??= 220;
       _fontSize = 17.0;
       _imageSize = !mini ? 28.0 : 34.0;
     } else {
-      padding ??= !mini ? EdgeInsets.all(6.0) : EdgeInsets.all(7.0);
+      padding ??= !mini ? 6.0 : 7.0;
       width ??= 250;
       _fontSize = 19.0;
       _imageSize = !mini ? 32.0 : 38.0;
