@@ -45,13 +45,16 @@ class SignInButton extends StatelessWidget {
   /// [btnText] set the button's text.
   String? btnText;
 
+  // custom button text widget
+  Widget? btnTextWidget;
+
   // not required, Gets value according to buttonSize.
   /// You can change the value of [width] when the text size becomes too small.
   double? width;
 
   // not required, Gets value according to buttonSize.
   /// [padding] set the button's padding value.
-  double? padding;
+  EdgeInsets? padding;
 
   /// [_image] value cannot be assigned.Gets value according to [buttonType].
   Widget? _image;
@@ -84,6 +87,7 @@ class SignInButton extends StatelessWidget {
     this.btnTextColor,
     this.btnDisabledTextColor,
     this.btnText,
+    this.btnTextWidget,
     this.elevation = 5.0,
     this.width,
     this.padding,
@@ -126,12 +130,12 @@ class SignInButton extends StatelessWidget {
                     : MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(padding!),
+                    padding: padding,
                     child:
                         imagePosition == ImagePosition.left ? _image : _text(),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(padding!),
+                    padding: padding,
                     child:
                         imagePosition == ImagePosition.left ? _text() : _image,
                   ),
@@ -145,19 +149,20 @@ class SignInButton extends StatelessWidget {
             disabledColor: btnDisabledColor,
             child: _image,
             elevation: elevation,
-            padding: EdgeInsets.all(padding!),
+            padding: padding,
             shape: CircleBorder(),
           );
   }
 
   Widget _text() {
-    return Text(
-      btnText!,
-      style: TextStyle(
-        fontSize: _fontSize,
-        color: _enabled ? btnTextColor : btnDisabledTextColor,
-      ),
-    );
+    return btnTextWidget ??
+        Text(
+          btnText!,
+          style: TextStyle(
+            fontSize: _fontSize,
+            color: _enabled ? btnTextColor : btnDisabledTextColor,
+          ),
+        );
   }
 
   void _setButtonSize() {
